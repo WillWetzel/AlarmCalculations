@@ -6,13 +6,125 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <EditText
+        android:id="@+id/editAlarmCurrent"
+        android:layout_width="129dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editStandByCurrent"
+        app:layout_constraintTop_toBottomOf="@+id/editStandByCurrent" />
+
     <TextView
+        android:id="@+id/textStandbyCurrent"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="60dp"
+        android:text="Standby Current"
+        android:textAlignment="center"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="@+id/textStandbyTime"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textStandbyTime" />
+
+    <EditText
+        android:id="@+id/editStandByCurrent"
+        android:layout_width="129dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="36dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/editStandbyTime"
+        app:layout_constraintTop_toBottomOf="@+id/editStandbyTime" />
+
+    <TextView
+        android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Battery Calculator"
+        android:textAlignment="center"
+        android:textSize="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.085" />
+
+    <EditText
+        android:id="@+id/editStandbyTime"
+        android:layout_width="129dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="36dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTitle" />
+
+
+    <TextView
+        android:id="@+id/textStandbyTime"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="8dp"
+        android:text="Standby Time"
+        android:textAlignment="center"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toStartOf="@+id/editStandbyTime"
+        app:layout_constraintHorizontal_bias="0.226"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTitle" />
+
+    <TextView
+        android:id="@+id/textAlarmCurrent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="48dp"
+        android:text="Full Alarm Current"
+        android:textAlignment="center"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="@+id/textStandbyCurrent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textStandbyCurrent" />
+
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="80dp"
+        android:text="Calculate"
+        android:textSize="20dp"
+        android:onClick="calculateBatteryCapacity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAlarmCurrent" />
+
+    <TextView
+        android:id="@+id/textResult"
+        android:layout_width="129dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="8dp"
+        android:text="Result"
+        android:textAlignment="center"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCalculate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btnCalculate" />
 
 </android.support.constraint.ConstraintLayout>
