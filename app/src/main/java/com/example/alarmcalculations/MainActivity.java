@@ -3,55 +3,45 @@ package com.example.alarmcalculations;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    EditText editStandByCurrent, editFullAlarmCurrent, editStandByTime;
+    TextView result;
+    Button buttonCalculateCmin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    /** Called when calculate button is pressed **/
-    public void calculateBatteryCapacity(View view)
-    {
-        //Define Variables & Fetch from inputs
-        TextView resultView = (TextView)findViewById(R.id.textResult);
-        double standbyCurrent = Double.parseDouble(findViewById(R.id.editStandByCurrent));
-        double fullAlarmCurrent = Double.parseDouble(editAlarmCurrent);
-        double standByTime = Double.parseDouble(editStandbyTime);
-        double Cmin = 0;
+        editStandByCurrent = (EditText) findViewById(R.id.editStandByCurrent);
+        editFullAlarmCurrent = (EditText) findViewById(R.id.editAlarmCurrent);
+        editStandByTime = (EditText) findViewById(R.id.editStandbyTime);
+        buttonCalculateCmin = (Button) findViewById(R.id.btnCalculate);
+        result = (TextView) findViewById(R.id.textResult);
 
+        buttonCalculateCmin.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+                //Get the numbers...
+                Double standByCurrent = Double.parseDouble(editStandByCurrent.getText().toString());
+                Double fullAlarmCurrent = Double.parseDouble(editFullAlarmCurrent.getText().toString());
+                Double standByTime = Double.parseDouble(editStandByTime.getText().toString());
+                Double Cmin;
 
+                //...And crunch 'em
+                Cmin = standByCurrent * standByTime;
+                Cmin += fullAlarmCurrent;
+                Cmin = Cmin * 1.25;
 
-
-        double value;
-        String text =your_edittext.getText().toString();
-        if(!text.isEmpty())
-            try
-            {
-                value= Double.parseDouble(text);
-                // it means it is double
-            } catch (Exception e1) {
-                // this means it is not double
-                e1.printStackTrace();
+                result.setText(Cmin.toString());
             }
-
-
-
-
-
-        //Cmin Calculations
-        Cmin = standbyCurrent * standByTime;
-        Cmin += fullAlarmCurrent;
-        Cmin = Cmin * 1.25;
-
-        //Send to TextView
-        String finalResult = Double.toString(Cmin);
-        resultView.setText(finalResult);
+        });
 
     }
 
