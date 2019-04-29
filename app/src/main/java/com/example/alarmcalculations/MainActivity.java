@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 Cmin += fullAlarmCurrent;
                 Cmin = Cmin * 1.25;
 
+                // Return/set result
                 result.setText(Cmin.toString());
             }
         });
